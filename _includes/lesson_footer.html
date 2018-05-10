@@ -4,13 +4,18 @@
 <footer>
   <div class="row">
     <div class="col-md-6" align="left">
-	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
 	{% if site.carpentry == "swc" %}
+	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
 	<a href="{{ site.swc_site }}">Software Carpentry Foundation</a>
 	{% elsif site.carpentry == "dc" %}
+	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
 	<a href="{{ site.dc_site }}">Data Carpentry</a>
 	{% elsif site.carpentry == "lc" %}
+	Copyright &copy; 2016–{{ 'now' | date: "%Y" }}
 	<a href="{{ site.lc_site }}">Library Carpentry</a>
+	{% elsif site.carpentry == "bw" %}
+	Copyright &copy; 2018–{{ 'now' | date: "%Y" }}
+	<a href="{{ site.bwportal }}">Blue Waters Project</a>
 	{% endif %}
     </div>
     <div class="col-md-6" align="right">
