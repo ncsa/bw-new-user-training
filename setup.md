@@ -12,7 +12,9 @@ and that you installed all security patches and updates.
 
 ## macOS and Mac OS X
 
-macOS and Mac OS X users should install [X Quartz](https://www.xquartz.org/)
+macOS and Mac OS X users should install [X Quartz](https://www.xquartz.org/).
+
+Your terminal applications is located at `/Applications/Utilities/Terminal.app`
 
 ## Windows
 

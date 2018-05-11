@@ -33,5 +33,5 @@
 [rubygems]: https://rubygems.org/pages/download/
 [styles]: https://github.com/swcarpentry/styles/
 [swc-releases]: https://github.com/swcarpentry/swc-releases
-[workshop-repo]: {{ site.workshop_repo }}
+{% if workshop_repo %} [workshop-repo]: {{ site.workshop_repo }} {% endif %}
 [yaml]: http://yaml.org/

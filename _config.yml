@@ -22,11 +22,13 @@ kind: "lesson"
 
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
-repository: maxim-belkin/bw-new-user-training
+# repository: maxim-belkin/bw-new-user-training
+repository: <USERNAME>/<PROJECT>
 
 # Sites.
 bwportal: "https://bluewaters.ncsa.illinois.edu"
 ncsaportal: "http://ncsa.illinois.edu"
+otpportal: "http://otp.ncsa.illinois.edu"
 swcstyles: "https://github.com/swcarpentry/styles.git"
 
 # Surveys.

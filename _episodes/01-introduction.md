@@ -59,7 +59,7 @@ in this list is, therefore, not a priority for the Blue Waters system.
 This section would be incomplete without at least some basic information about
 the system itself. So, here it is:
 
- - The system has nodes with and without GPUs
+ - The system has [nodes]({{ page.root }}/reference/#node) with and without GPUs
  - 22,636 nodes without GPUs are called XE and have
     - 32 AMD Bulldozer cores
     - 64 GB of RAM (some have 128 GB)
