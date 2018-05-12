@@ -182,6 +182,29 @@ provided as `User` parameter.
 
 We can log in to Blue Waters with just 7 keystrokes (+password)!
 
+> ## Connecting to specific login nodes
+>
+> Sometimes it is necessary to connect to a specific login node.
+> Change your `~/.ssh/config` file so that you can connect to
+> them using a simple `ssh h2ologin1` (and similar) commands
+>
+> > ## Solution
+> >
+> > Add the following lines to `~/.ssh/config` file:
+> > ~~~
+> > Host h2ologin1
+> >     Hostname h2ologin1.ncsa.illinois.edu
+> >     User username
+> > Host h2ologin2
+> >     Hostname h2ologin2.ncsa.illinois.edu
+> >     User username
+> > Host h2ologin3
+> >     Hostname h2ologin3.ncsa.illinois.edu
+> >     User username
+> > ~~~
+> {: .solution}
+{: .challenge}
+
 ## X11 forwarding
 
 Let's try executing a simple GUI application right on a login node
