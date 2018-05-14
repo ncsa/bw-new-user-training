@@ -218,7 +218,7 @@ We can log in to Blue Waters with just 7 keystrokes (+password)!
 {: .challenge}
 
 <br />
-## Working remotely with GUI programs
+## Working with GUI programs
 
 When we are connected  to Blue Waters _via_ `ssh`, commands that we type in our
 terminal are sent to Blue Waters for execution and their output is forwarded
