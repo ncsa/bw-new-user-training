@@ -203,8 +203,73 @@ We can log in to Blue Waters with just 7 keystrokes (+password)!
 > >     User username
 > > ~~~
 > {: .solution}
+> > ## Solution for recent versions of ssh
+> >
+> > The above solution works but it is hard not to notice the repetition
+> > there: host names are very similar, usernames are identical.
+> > Recent versions of `ssh` understand so-called patterns. Using patterns
+> > we can rewrite the above solution as:
+> > ~~~
+> > Host h2ologin?
+> >     Hostname %h.ncsa.illinois.edu
+> >     User username
+> > ~~~
+> {: .solution}
 {: .challenge}
 
-## X11 forwarding
+<br />
+## Working remotely with GUI programs
 
-Let's try executing a simple GUI application right on a login node
+When we are connected  to Blue Waters _via_ `ssh`, commands that we type in our
+terminal are sent to Blue Waters for execution and their output is forwarded
+back to our terminal. This procedure works well as long as we are
+dealing with the so-called Command-Line Interface (CLI) programs. There is, however, a
+different class of programs called Graphical User Interface programs that
+require special considerations when working remotely.
+Unless you are on Unix, your Terminal (emulator) is a GUI-based program too.
+Let's see what happens when we execute a simple GUI program on a login node. Connect to
+Blue Waters and execute:
+
+~~~
+$ xeyes
+~~~
+{:. language-bash}
+~~~
+Error: Can't open display:
+~~~
+{: .output}
+
+`xeyes` is a simple program that displays a pair of eyes that track movement of
+a mouse cursor.  It failed to execute simply because it tried to use a monitor
+that does not exist.  The solution is to send (tunnel) display instructions to
+a local machine using the so-called X Protocol version 11 (X11). For this
+solution to work, your machine must have an **X server** installed and running.
+Please refer to our [Setup](../setup.html) page for instructions on how to
+install it on your operating system.  This is, clearly, not as efficient as
+sending commands to a local monitor but, at least, it allows GUI programs
+function properly over `ssh`. To send display instructions to our local machine,
+all we have to do is add an extra flag `-X` to the `ssh` command:
+
+~~~
+$ ssh -X bw
+~~~
+{: .language-bash}
+
+Now, execute `xeyes`:
+~~~
+$ xeyes
+~~~
+{: .language-bash}
+
+You should see a nice pair of eyes!
+
+![Xeyes](../fig/xeyes.png)
+
+Because we used X protocol version 11, what we have just done is called **X11 Forwarding**.
+
+> ## What if `-X` does not help?
+>
+> If you get a `Can't open display` error even when using the `-X` flag,
+> try the `-Y` flag instead. This flag has the same effect as `-X`, but forwarded
+> instructions are not subject to X11 security extension controls
+{: .callout}
