@@ -266,6 +266,11 @@ You should see a nice pair of eyes!
 ![Xeyes](../fig/xeyes.png)
 
 Because we used X protocol version 11, what we have just done is called **X11 Forwarding**.
+To learn more about X Window System and X11 forwarding, please refer to:
+X Window System [wiki page](https://en.wikipedia.org/wiki/X_Window_System),
+its manual page (`man X`),
+and
+a manual page for SSH configuration file (`man ssh_config`).
 
 > ## What if `-X` does not help?
 >
