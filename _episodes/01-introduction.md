@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Blue Waters"
-teaching: 0
+teaching: 30
 exercises: 0
 questions:
 - "Blue Waters: What? Where? and Why?"

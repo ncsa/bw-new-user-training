@@ -1,7 +1,7 @@
 ---
 title: "Logging in"
-teaching: 0
-exercises: 0
+teaching: 30
+exercises: 5
 questions:
 - "How do I connect to the system?"
 - "How do I simplify this process?"
@@ -15,7 +15,7 @@ keypoints:
 ---
 
 You should have received an account on Blue Waters in advance of this lesson.
-In simplest terms, an account on any system means two things: a **username** and a **password**
+In simplest terms, an account on any system means two things: a **username** and a **password**,
 and you probably know what both of these are. However, because security is of a primary concern,
 Blue Waters uses the so-called **two-factor authentication**. This means that your "password" is,
 in fact, made of two components:
