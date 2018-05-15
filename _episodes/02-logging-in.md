@@ -3,15 +3,16 @@ title: "Logging in"
 teaching: 30
 exercises: 5
 questions:
-- "How do I connect to the system?"
-- "How do I simplify this process?"
+- "How do I quickly connect to Blue Waters?"
 objectives:
 - "Connect to Blue Waters using `ssh` command"
-- "Understand what X11 forwarding is and how to enable it with `ssh`"
 - "Save `ssh` configuration in a file"
+- "Understand what **X11 forwarding** is and how to enable it with `ssh`"
 keypoints:
 - "Blue Waters general address is **bw.ncsa.illinois.edu**"
-- "Blue Waters can be accessed \"remotely\" **only**"
+- "Blue Waters uses two-factor authentication"
+- "`~/.ssh/config` stores important connection information"
+- "`-X` flag enables X11 forwarding over `ssh`"
 ---
 
 You should have received an account on Blue Waters in advance of this lesson.

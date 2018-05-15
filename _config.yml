@@ -30,6 +30,7 @@ bwportal: "https://bluewaters.ncsa.illinois.edu"
 ncsaportal: "http://ncsa.illinois.edu"
 otpportal: "http://otp.ncsa.illinois.edu"
 swcstyles: "https://github.com/swcarpentry/styles.git"
+bwhelpemail: "mailto:help+bw@ncsa.illinois.edu"
 
 # Surveys.
 # pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
