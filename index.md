@@ -14,13 +14,16 @@ anytime!  If you're using this lesson for self-paced learning - send your questi
 >
 > **Hardware**<br />
 > This is a hands-on introduction to Blue Waters.
-> Therefore, participants are encouraged to use their computers to ensure the proper setup of tools for the efficient workflow.
+> Therefore, participants are encouraged to use their personal computers that they play to
+> use when working with the Blue Waters system.
 >
 > **Software**<br />
 > Please consult with the [Setup](setup) page for details on the required software
 >
-> **Background**.<br />
-> As this is an introduction on how to use Blue Waters, you're expected to have the basic knowledge of the Linux command line *basics*.
-> Please have a look at the Software Carpentry [Bash lesson](https://swcarpentry.github.io/shell-novice/).
+> **Background**<br />
+> Because this is an introduction to Blue Waters, you're expected to be familiar with
+> basic Linux commands.
+> Please have a look at the Software Carpentry
+> [Bash lesson](https://swcarpentry.github.io/shell-novice/).
 > We will cover some additional topics needed for working on the Blue Waters system is it will definitely help if you know the basics.
 {: .prereq}
