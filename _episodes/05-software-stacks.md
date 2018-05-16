@@ -222,10 +222,21 @@ $ module avail cuda
 ------------------------ /opt/cray/modulefiles -------------------------
 cudatoolkit/5.5.51-1.0502.9594.1.1
 cudatoolkit/5.5.51-1.0502.9594.3.1
-cudatoolkit/6.5.14-1.0502.9613.6.1
+cudatoolkit/6.5.14-1.0502.9613.6.
 cudatoolkit/6.5.14-1.0502.9836.8.1
 cudatoolkit/7.0.28-1.0502.10280.4.1
 cudatoolkit/7.0.28-1.0502.10742.5.1
 cudatoolkit/7.5.18-1.0502.10743.2.1(default)
 ~~~
 {: .output}
+
+## Compiling your own applications
+
+If you have to compile your own application from source,
+there are a few general rules that you have to follow:
+
+1. Replace all calls to `gcc` with `cc`
+2. Do not use `mpicc` with `cc`
+
+Once your application is compiled, you can proceed with sending it for
+execution to the Blue Waters job queue.
