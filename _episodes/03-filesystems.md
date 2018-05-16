@@ -13,7 +13,7 @@ keypoints:
 - "`projects` command lists user's science projects on Blue Waters"
 - "`quota` command lists user's usage on all 4 filesystems"
 - "Blue Waters supports ACL for for fine-grained access control to files"
-- "`setfacl` and `getfacl`
+- "`setfacl` and `getfacl`"
 ---
 
 ## Home directory
