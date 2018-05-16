@@ -25,19 +25,20 @@ let's take a closer look at its structure.
 
 As you already know, when we connect to Blue Waters _via_ `ssh` command we land on one
 of three login nodes. Here we can take care of all input data and compile our application.
-However, we can not simply execute. Instead, we have to:
+However, we can not simply execute our science  application there. Instead, we have to:
 
 1. Prepare the so-called _job batch script_ that sets up the execution environment
 2. Submit the job to the queue
 3. From within that script, send the application for execution on the compute nodes
 
 ## Job script
+
 Blue Waters uses **Portable Batch System** (**PBS**) to handle scheduling on jobs.
 A job script is a simple Shell script that you want to be executed by the system on
 the MOM nodes.
 It contains special instructions for the queuing system about the requested resources,
 account to be charged, job name, and _etc._
-The script must have an `aprun` command (which replaces `mpirun`) that sends an
+The script must have an `aprun` command that sends an
 application for the execution on the compute nodes.
 
 Please copy the following directory to your home folder: `~mbelkin/new-user-training`.
