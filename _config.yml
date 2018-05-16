@@ -6,7 +6,7 @@
 carpentry: "bw"
 
 # Overall title for pages.
-title: "Blue Waters: New User Training"
+title: "New User Training"
 
 # Contact.  This *must* include the protocol:
 # "mailto:" for emails .
@@ -31,6 +31,7 @@ ncsaportal: "http://ncsa.illinois.edu"
 otpportal: "http://otp.ncsa.illinois.edu"
 swcstyles: "https://github.com/swcarpentry/styles.git"
 bwhelpemail: "mailto:help+bw@ncsa.illinois.edu"
+getting-started: "https://bluewaters.ncsa.illinois.edu/getting-started"
 
 # Surveys.
 # pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
