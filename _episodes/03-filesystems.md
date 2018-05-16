@@ -1,15 +1,19 @@
 ---
-title: "Blue Waters' Filesystems"
+title: "Filesystems"
 teaching: 30
-exercises: 0
+exercises: 5
 questions:
-- "Where can I store my programs, simulation results, large files to share with team members?"
-- "Where can I offload data to share it with my outside collaborators?"
+- "Where can I store my programs, simulation results, large files?"
 objectives:
-- "Understand the purpose of Blue Waters' filesystems."
-- "Know how to check usage"
+- "Understand the purpose of different filesystems on Blue Waters."
+- "Know what files contribute to quota on each filesystem"
+- "Know how to control access of other users to your data"
 keypoints:
-- "There are 3 online filesystems"
+- "Blue Waters has 3 online filesystems and one tape storage system"
+- "`projects` command lists user's science projects on Blue Waters"
+- "`quota` command lists user's usage on all 4 filesystems"
+- "Blue Waters supports ACL for for fine-grained access control to files"
+- "`setfacl` and `getfacl`
 ---
 
 ## Home directory
@@ -129,6 +133,57 @@ TRAIN_barx     Used:     0    of  50.0TiB Assessed on: Mon Jan 14 17:11:01 2018
 The three directories that we have just discussed are stored on different filesystems
 and are accessible from anywhere on Blue Waters.
 Because of that, these filesystems together form the called **online** storage system.
+
+## Fine-grained access control
+
+Blue Waters supports fine-grained access control to users' files and directories _via_
+Access Control Lists, or ACL.
+This means that in addition to the usual `chmod` command, you can use `setfacl` and `getfacl`
+set of commands to grant or revoke access to your data for any specific user on the system.
+For example, to grant read access to your home directory to user `daniel`, execute:
+~~~
+$ setfacl -m u:daniel:r-x $HOME
+~~~
+{: .language-bash}
+To revoke access to your scratch directory from user `ben`, execute:
+~~~
+$ setfacl -m u:ben:--- /scratch/sciteam/username
+~~~
+{: .language-bash}
+
+To check current ACL, use the `getfacl` command:
+
+~~~
+$ getfacl /scratch/sciteam/username
+~~~
+{: .language-bash}
+
+To remove all ACL, use `setfacl` with the `-b` flag:
+
+~~~
+$ setfacl -b /scratch/sciteam/username
+~~~
+{: .language-bash}
+
+> ## Using `setfact`
+>
+> As an exercise, create a new directory in your scratch directory and use `setfacl` command to
+> grant access to it to the instructor of this course. The instructor should tell you his or her
+> username on the system. In the end, remove the test directory and remove the ACL from your
+> scratch directory.
+>
+> > ## Solution
+> > Assuming that the instructor's username is `INSTRUCTOR`, execute:
+> > ~~~
+> > $ mkdir /scratch/sciteam/$USER/testdir
+> > $ setfacl -m u:INSTRUCTOR:rx /scratch/sciteam/$USER /scratch/sciteam/$USER/testdir
+> > # Let instructor verify your solution
+> > $ rm -r /scratch/sciteam/$USER/testdir
+> > $ setfacl -b /scratch/sciteam/$USER 
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
 
 <br />
 ## Nearline
