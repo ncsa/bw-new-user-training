@@ -89,7 +89,7 @@ Change: 2018-05-16 02:06:47.000000000 -0500
 {: .output}
 
 All timestamps have been reset to the time at which the upload took place!
-If repeat the upload or, instead, download the file, timestamps will be updated again.
+If you repeat the upload or, instead, download the file, timestamps will be updated again.
 This constitutes a problem if you rely on data timestamps in your analysis.
 To preserve timestamps, use `-p` flag when transferring data with `scp`:
 
@@ -110,13 +110,15 @@ $ scp -pr local-directory bw:~/path/
 ~~~
 {: .language-bash}
 
-That was not too difficult... But there is, in fact, a caveat: `scp` follows symbolic links.
+That was not too difficult... But there is, in fact, a caveat: _`scp` follows symbolic links_.
+This means that instead of transfering symbolic links as such, `scp` transfers actual files they
+point to.
 
 <br />
 ## `rsync`, the savior
 
 `rsync` is a popular and, in many ways, a much better alternative to `scp`.
-Without much ado, the most useful syntax is:
+Without much ado, its most useful syntax is:
 ~~~
 $ rsync -avP linux-4.16.8.tar.xz bw:~/
 ~~~
@@ -151,8 +153,9 @@ If we "accidentally" try uploading it again, `rsync` will, again, skip the uploa
 <br />
 ## `wget` and `curl`
 
-Of course, it makes sense to download files from the World Wide Web directly onto the Blue Waters.
-`wget` and `curl` are ideally suited for such purposes:
+When files that you'd like to upload onto Blue Waters are located somewhere in the World Wide
+Web, it makes sense to skip the step of downloading them to your computer and copy them directly
+to Blue Waters. In such a case, you can use `wget` or `curl`:
 
 ~~~
 $ wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.8.tar.xz
@@ -174,7 +177,7 @@ $ git clone https://github.com/your-github-account/repository.git ~/source-code/
 ## Large/long data transfers
 
 When dealing with large data, we have to consider the details of the data transfer process.
-Commands that we issued above use `bw` as one of the end points of the data transfer.
+Commands that we issued above use `bw` as one of the "end points" of the data transfer.
 As we already know, `bw` is, in fact, a non-existent machine that connects us
 to one of the three login nodes.
 Thus, when we transfer data using `bw` as destination we, in fact use Blue Waters login nodes.

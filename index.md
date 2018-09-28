@@ -5,7 +5,7 @@ root: .
 ---
 Welcome to the **[Blue Waters]({{ site.bwportal }})** [New User Training]({{ site.url }})!
 
-In this lesson, you will learn the basics of using one of the most powerful supercomputers in the
+In this lesson you will learn the basics of using one of the most powerful supercomputers in the
 world!  If you're attending a live session - feel free to ask the presenter questions
 anytime!  If you're using this lesson for self-paced learning - send your questions to
 [bw-eot@ncsa.illinois.edu]({{ site.email }})!
