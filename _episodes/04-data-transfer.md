@@ -138,11 +138,11 @@ Note that command completes almost instantly.
 and did not transfer it, saving us bandwidth and time!
 
 > ## Training accounts
-> 
+>
 > If you're using a training account, add `-e 'ssh bwbay.ncsa.illinois.edu ssh'`
 > to the `rsync` command above:
 > ~~~
-> $ rsync -avP -e 'ssh bwbay.ncsa.illinois.edu ssh' linux-4.16.8.tar.xz bw:~/
+> $ rsync -avP -e 'ssh -l traXXX bwbay.ncsa.illinois.edu ssh' linux-4.16.8.tar.xz bw.ncsa.illinois.edu:~/
 > ~~~
 > {: .language-bash}
 {: .callout}
