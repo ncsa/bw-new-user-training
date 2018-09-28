@@ -109,12 +109,13 @@ PrgEnv-gnu/5.2.82(10):ERROR:150: Module 'PrgEnv-gnu/5.2.82' conflicts with the c
 PrgEnv-gnu/5.2.82(10):ERROR:102: Tcl command execution failed: conflict PrgEnv-cray
 ~~~
 {: .output}
-It failed! But why? The reason is simple: changes that are introduced by PrgEnv-gnu module
-conflict with those introduced by the PrvEnv-cray module.
+It failed! The reason it failed is simple: changes that are introduced by PrgEnv-gnu module
+conflict with those introduced by the PrvEnv-cray module, which is currently loaded.
 These modules are, in fact, called **`Programming Environment`** modules.
-The reason they are called so is simple: they make a lot of changes to your environment and, therefore, can not be combined.
+The reason they are called so is simple: they make a lot of changes to your environment and,
+therefore, can not be combined.
 
-One might ask: is there a way to know what changes a particular module does do the environment?
+One might ask: is there a way to know what changes a particular module does to the environment?
 For that purpose we can use `module show` command:
 
 ~~~
@@ -204,14 +205,14 @@ Well, for now, we will simply say that:
 1. This is possible
 2. This is documented [here](https://bluewaters.ncsa.illinois.edu/pythonnotebooks)
 
-However, if you have any problems - please let us know at
+However, if you have any questions or problems - please let us know at
 [help+bw@ncsa.illinois.edu]({{ site.bwhelpemail }})
 
 ### `cudatoolkit`
 
 GPUs provide enormous computational power.
 If your application requires CUDA, you should be aware of the `cudatoolkit` modules installed on the system.
-At the moment, the most recent version of `cudatoolkit` installed on Blue Waters is version 7.5.
+At the moment, the most recent version of `cudatoolkit` installed on Blue Waters is version 9.1.
 
 ~~~
 $ module avail cuda
@@ -226,7 +227,8 @@ cudatoolkit/6.5.14-1.0502.9613.6.
 cudatoolkit/6.5.14-1.0502.9836.8.1
 cudatoolkit/7.0.28-1.0502.10280.4.1
 cudatoolkit/7.0.28-1.0502.10742.5.1
-cudatoolkit/7.5.18-1.0502.10743.2.1(default)
+cudatoolkit/7.5.18-1.0502.10743.2.1
+cudatoolkit/9.1.85_3.10-1.0502.df1cc54.3.1(default)
 ~~~
 {: .output}
 
@@ -235,8 +237,39 @@ cudatoolkit/7.5.18-1.0502.10743.2.1(default)
 If you have to compile your own application from source,
 there are a few general rules that you have to follow:
 
-1. Replace all calls to `gcc` with `cc`
-2. Do not use `mpicc` with `cc`
+1. Replace all calls to `gcc` and `icc` with `cc`
+2. Do not use `mpicc`! Use `cc`.
 
 Once your application is compiled, you can proceed with sending it for
 execution to the Blue Waters job queue.
+
+> ## Updating your Makefile for Blue Waters
+>
+> Given the Makefile below, update it to use on Blue Waters.
+>
+> ~~~
+> $ cat Makefile
+> ~~~
+> {: .language-bash}
+>
+> ~~~
+> # This is a Makefile that was created on a regular computer
+> # Modify it to make it work on Blue Waters
+> # IMPORTANT: Makefiles use Tabs, not spaces
+>
+> CC = gcc
+>
+> all: simple_mpi.exe
+>
+> simple_mpi.exe: src/simple_mpi.c
+> 	$(CC) -o $@ $^
+>
+> .PHONY: clean all
+>
+> clean:
+> 	rm -f *.exe
+> ~~~
+> {: .output}
+>
+{: .challenge}
+
