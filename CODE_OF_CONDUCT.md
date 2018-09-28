@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Contributor Code of Conduct"
-permalink: /conduct/
 ---
 All contributors and maintainers of this project
 pledge to follow the [Code of Conduct][coc].
