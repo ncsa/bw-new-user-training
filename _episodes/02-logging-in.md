@@ -18,7 +18,7 @@ keypoints:
 You should have received an account on Blue Waters in advance of this lesson.
 In simplest terms, an account on any system means two things: a **username** and a **password**,
 and you probably know what both of these are. However, because security is of a primary concern,
-Blue Waters uses the so-called **two-factor authentication**. This means that your "password" is,
+standard Blue Waters accounts use the so-called **two-factor authentication**. What this means is that your "password" is,
 in fact, made of two components:
 
    - **PIN**: the part that you control
@@ -27,6 +27,9 @@ in fact, made of two components:
 
 So, when you're asked to provide your password (or **PASSCODE**), you have to enter your PIN
 followed by a TOKEN.
+
+Note, that training accounts do not have two-factor authentication and, therefore, if you're using
+such an account you don't have to enter the TOKEN
 
 > ## Set the PIN
 > If you have not done so already, you can set you PIN at **<{{ site.otpportal }}>**.
@@ -42,7 +45,7 @@ Unlike regular computers, supercomputers like Blue Waters are designed to be acc
 machine). Let's open it up (plese refer to our [Setup](../setup.html) page for more information).
 What you see in front of you is called a shell: this is a program that executes other programs.
 
-To connect to Blue Waters we will use a program called **SSH**, which is short for **Secure SHell**.
+To connect to Blue Waters we will use a program called **ssh**, which is short for **Secure SHell**.
 The general syntax for connecting to any remote machine using `ssh` command is:
 
 ~~~
@@ -53,30 +56,33 @@ $ ssh -l username remote-machine-address
 Here, `username` is the your username on that remote machine.
 <br />Note, that there is an altenative syntax for the above command:
 
-
 ~~~
 $ ssh username@remote-machine-address
 ~~~
 {: .language-bash}
 
-The Blue Waters system's address is **`bw.ncsa.illinois.edu`**. Thus, all we have to do to connect
+The Blue Waters system's address is **`bw.ncsa.illinois.edu`** for standard accounts, and
+**`bwbay.ncsa.illinois.edu`** for training accounts. Thus, all we have to do to connect
 to Blue Waters is execute the following command:
 
 ~~~
-$ ssh -l username bw.ncsa.illinois.edu
+$ ssh -l username bw.ncsa.illinois.edu  # for standard accounts
+$ # or
+$ ssh -l traXXX bwbay.ncsa.illinois.edu # for training accounts
 ~~~
 {: .language-bash}
 
-
-    Access by OTP or Two Factor Certificate Authority only.
-    Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
-    gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
-
-
-    Blue Waters Admin Team
+~~~
+Access by OTP or Two Factor Certificate Authority only.
+Use myproxy-logon -s tfca.ncsa.illinois.edu -p 7512 for gsissh access.
+gsissh or ssh -o PreferredAuthentications=keyboard-interactive for otp access.
 
 
-    Enter PASSCODE:
+Blue Waters Admin Team
+
+
+Enter PASSCODE:
+~~~
 {: .output}
 
 Enter your passcode as we discussed above and hit <kbd>Return</kbd>. You should see a message
@@ -146,7 +152,7 @@ Let us log out from the Blue Waters system for now and have a closer look at the
 that we used above.
 
 ~~~
-$ exit
+$ exit # leave Blue Waters login node
 ~~~
 {: .language-bash}
 
