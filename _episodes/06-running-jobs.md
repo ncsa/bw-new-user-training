@@ -9,8 +9,8 @@ objectives:
 - "Learn how to submit, delete, and control jobs"
 - "Learn how to execute software on compute nodes"
 keypoints:
-- "MOM node is a node where batch job scripts are executed."
-- "`aprun` sends applications for execution to compute nodes."
+- "Job scripts are executed on MOM nodes."
+- "`aprun` must be used to send applications for execution to compute nodes."
 ---
 
 ## A Closer Look at the Blue Waters nodes
