@@ -15,16 +15,11 @@ keypoints:
 - "Python lives in \"bwpy\" series of modules"
 ---
 
-_**This episode is a stub and is beeing actively developed.**_
-_Please feel free to share your ideas and/or contribute._
-
 ## Modules
 
-To help its users take full advantage of the hardware
-capabilities, Blue Waters provides **modules**:
-pre-compiled software packages
-that are optimized for the Blue Waters' hardware.
-To get started with modules, let's execute:
+To help its users take full advantage of the hardware capabilities, Blue Waters provides
+**modules**: pre-compiled software packages that are optimized for the Blue Waters' hardware.  To
+get started with modules, let's execute:
 
 ~~~
 $ module list
@@ -60,7 +55,19 @@ To see what modules are available, execute:
 $ module avail
 ~~~
 {: .language-bash}
-You should get a long list of available modules.
+You should get a long list of available modules. Of course, if you know the name of the module, you
+can narrow down your search with either
+~~~
+$ module avail py
+~~~
+{: .language-bash}
+
+This will show all modules that start with `py`. To look for modules that have `py` in their name,
+use the `-S` flag:
+~~~
+$ module avail -S py
+~~~
+{: .language-bash}
 
 To demonstrate the effect of adding a module to your environment,
 let's check the version of the GNU C compiler:
@@ -109,8 +116,8 @@ PrgEnv-gnu/5.2.82(10):ERROR:150: Module 'PrgEnv-gnu/5.2.82' conflicts with the c
 PrgEnv-gnu/5.2.82(10):ERROR:102: Tcl command execution failed: conflict PrgEnv-cray
 ~~~
 {: .output}
-It failed! The reason it failed is simple: changes that are introduced by PrgEnv-gnu module
-conflict with those introduced by the PrvEnv-cray module, which is currently loaded.
+It failed! The reason it failed is simple: changes that are introduced by `PrgEnv-gnu` module
+conflict with those introduced by the `PrgEnv-cray` module, which is currently loaded.
 These modules are, in fact, called **`Programming Environment`** modules.
 The reason they are called so is simple: they make a lot of changes to your environment and,
 therefore, can not be combined.
@@ -154,8 +161,8 @@ setenv		 CRAY_PRGENVGNU loaded
 -------------------------------------------------------------------
 ~~~
 {: .output}
-Here you can see that this module conflicts with PrgEnv-cray.
-Therefore, to load module PrgEnv-gnu into the system, we have to swap it with the PrgEnv-cray:
+Here you can see that this module conflicts with `PrgEnv-cray`, `PrgEnv-intel`, and `PrgEnv-pgi`.
+Therefore, to load module `PrgEnv-gnu` into the system, we have to swap it with the `PrgEnv-cray`:
 
 ~~~
 $ module swap PrgEnv-cray PrgEnv-gnu
@@ -191,28 +198,42 @@ page on the Blue Waters portal.
 ## Python + MPI = `bwpy-mpi`
 
 To take advantage of the fast Blue Waters interconnect from within Python, you have to load
-the `bwpy-mpi` module. This module, however, does not work on the login nodes.
+the `bwpy-mpi` module. This module, however, was designed to be used on MOM nodes and issue a
+warning if you try to use it on the login nodes:
 ~~~
 $ module load bwpy
 $ module load bwpy-mpi
 ~~~
 {: .language-bash}
+~~~
+Warning: BWPY-MPI may break on a login node!
+~~~
+{: .output}
 
-## Python + Jupyter Notebooks = ...
+## Jupyter Notebooks == Modern Science ???
 
-Well, for now, we will simply say that:
+Well, for now, we will just say that:
 
-1. This is possible
-2. This is documented [here](https://bluewaters.ncsa.illinois.edu/pythonnotebooks)
+1. this is possible
+2. the procedure is documented [here](https://bluewaters.ncsa.illinois.edu/pythonnotebooks)
 
 However, if you have any questions or problems - please let us know at
-[help+bw@ncsa.illinois.edu]({{ site.bwhelpemail }})
+[help+bw@ncsa.illinois.edu]({{ site.bwhelpemail }}).
 
-## `cudatoolkit`
+
+## Using GPUs
 
 GPUs provide enormous computational power.
-If your application requires CUDA, you should be aware of the `cudatoolkit` modules installed on the system.
-At the moment, the most recent version of `cudatoolkit` installed on Blue Waters is version 9.1.
+If your application requires or is capable of taking advantage of NVIDIA GPUs, you should be aware
+of two modules:
+
+ - `cudatoolkit`
+ - `craype-accel-nvidia35`
+
+The first module is required for any application that uses GPUs and the second one is required for
+applications that use OpenACC. At the moment, the latest version of `cudatoolkit` installed on Blue
+Waters is version 9.1 though it might change in the future.  `craype-accel-nvidia35` module, on the
+other hand, is specific to the NVIDIA GPUs installed on Blue Waters.
 
 ~~~
 $ module avail cuda
@@ -231,6 +252,7 @@ cudatoolkit/7.5.18-1.0502.10743.2.1
 cudatoolkit/9.1.85_3.10-1.0502.df1cc54.3.1(default)
 ~~~
 {: .output}
+
 
 ## Compiling your own applications
 
