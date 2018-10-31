@@ -15,21 +15,23 @@ keypoints:
 - "`-X` flag enables X11 forwarding over `ssh`"
 ---
 
-You should have received an account on Blue Waters in advance of this lesson.
-In simplest terms, an account on any system means two things: a **username** and a **password**,
-and you probably know what both of these are. However, because security is of a primary concern,
-standard Blue Waters accounts use the so-called **two-factor authentication**. What this means is that your "password" is,
-in fact, made of two components:
+You should have received an account on Blue Waters in advance of this lesson.  In simplest terms, an
+account on any system means two things: a **username** and a **password**, and you probably know
+what both of these are. However, because security is of a primary concern, standard Blue Waters
+accounts use the so-called **two-factor authentication**. What this means is that your "password"
+is, in fact, made of two components:
 
    - **PIN**: the part that you control
    - **TOKEN**: 6 (or 8) digits that are generated every 30 seconds either by
      a special hardware RSA token or your mobile device.
 
+[![Hardware RSA token](../fig/SID700.png)](https://www.tokenguard.com/RSA-SecurID-SID700.asp)
+
 So, when you're asked to provide your password (or **PASSCODE**), you have to enter your PIN
 followed by a TOKEN.
 
-Note, that training accounts do not have two-factor authentication and, therefore, if you're using
-such an account you don't have to enter the TOKEN
+Training accounts do not have two-factor authentication and, therefore, if you're using such an
+account you don't have to enter the TOKEN.
 
 > ## Set the PIN
 > If you have not done so already, you can set you PIN at **<{{ site.otpportal }}>**.
@@ -37,8 +39,7 @@ such an account you don't have to enter the TOKEN
 > hit <kbd>Return</kbd> again. On the new page you will be asked to specify your **PIN**.
 {: .callout}
 
-<br />
-### Connecting to Blue Waters
+## Connecting to Blue Waters
 
 Unlike regular computers, supercomputers like Blue Waters are designed to be accessed
 *remotely* only. To do that, we need a terminal (or a terminal emulator if you are on a Windows
@@ -61,7 +62,7 @@ $ ssh username@remote-machine-address
 ~~~
 {: .language-bash}
 
-The Blue Waters system's address is **`bw.ncsa.illinois.edu`** for standard accounts, and
+The Blue Waters system's address is **`bw.ncsa.illinois.edu`** for standard accounts and
 **`bwbay.ncsa.illinois.edu`** for training accounts. Thus, all we have to do to connect
 to Blue Waters is execute the following command:
 
@@ -116,8 +117,7 @@ For known issues:  https://bluewaters.ncsa.illinois.edu/known-issues
 
 **Congratulations!** You have successfully logged in to the Blue Waters supercomputer!
 
-<br />
-### Login nodes: H<sub>2</sub>O
+## Login nodes: H<sub>2</sub>O
 
 When we connect to the system, we land on one of the Blue Waters login nodes.
 Let's see the name of the computer that we got onto:
@@ -141,12 +141,13 @@ $ ssh -l username h2ologin3.ncsa.illinois.edu
 ~~~
 {: .language-bash}
 
+Note, that training accounts can not connect directly to a specific login node.
+
 There are only 3 login nodes that are shared by all Blue Waters users. Therefore,
 it is important not to run any compute, data, or network-intensive processes on
 them.
 
-<br />
-### SSH config
+## SSH config
 
 Let us log out from the Blue Waters system for now and have a closer look at the `ssh` command
 that we used above.
@@ -172,6 +173,10 @@ Now, let's open that `~/.ssh/config` file in a text editor and enter add the fol
 Host bw
     Hostname bw.ncsa.illinois.edu
     User username
+
+Host bwbay
+    Hostname bwbay.ncsa.illinois.edu
+    User traXXX
 ~~~
 {:. output}
 
@@ -189,7 +194,7 @@ provided as `User` parameter.
 
 We can log in to Blue Waters with just 7 keystrokes (+password)!
 
-> ## Connecting to specific login nodes
+> ## Connecting to specific login nodes (standard accounts)
 >
 > Sometimes it is necessary to connect to a specific login node.
 > Change your `~/.ssh/config` file so that you can connect to
@@ -224,7 +229,6 @@ We can log in to Blue Waters with just 7 keystrokes (+password)!
 > {: .solution}
 {: .challenge}
 
-<br />
 ## Working with GUI programs
 
 When we are connected  to Blue Waters _via_ `ssh`, commands that we type in our
@@ -255,10 +259,13 @@ Please refer to our [Setup](../setup.html) page for instructions on how to
 install it on your operating system.  This is, clearly, not as efficient as
 sending commands to a local monitor but, at least, it allows GUI programs
 function properly over `ssh`. To send display instructions to our local machine,
-all we have to do is add an extra flag `-X` to the `ssh` command:
+all we have to do is add an extra flag `-X` to the `ssh` command for standard accounts
+and `-Y` flag for training accounts:
 
 ~~~
 $ ssh -X bw
+# or
+$ ssh -Y bwbay
 ~~~
 {: .language-bash}
 
