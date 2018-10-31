@@ -9,11 +9,9 @@ objectives:
 - "Learn how to submit, delete, and control jobs"
 - "Learn how to execute software on compute nodes"
 keypoints:
-- "FIXME"
+- "MOM node is a node where batch job scripts are executed."
+- "`aprun` sends applications for execution to compute nodes."
 ---
-
-_**This episode is a stub and is beeing actively developed.**_
-_Please feel free to share your ideas and/or contribute._
 
 ## A Closer Look at the Blue Waters nodes
 
@@ -33,33 +31,51 @@ However, we can not simply execute our science  application there. Instead, we h
 
 ## Job script
 
-Blue Waters uses **Portable Batch System** (**PBS**) to handle scheduling on jobs.
-A job script is a simple Shell script that you want to be executed by the system on
-the MOM nodes.
-It contains special instructions for the queuing system about the requested resources,
-account to be charged, job name, and _etc._
-The script must have an `aprun` command that sends an
-application for the execution on the compute nodes.
+Blue Waters uses **Portable Batch System** (**PBS**) to handle scheduling on jobs.  A job script is
+a simple Shell script that you want to be executed by the system on the MOM nodes.  It contains
+special instructions for the queuing system about the requested resources, account to be charged,
+job name, and _etc._ The script must have an `aprun` command that sends an application for the
+execution on the compute nodes.
 
 Please copy the following directory to your home folder: `~mbelkin/new-user-training`.
 This directory contains two simple batch scripts (`*.pbs`) and a `src` directory with
 a few programs.
 
-# Backfill
 
+## Submitting job to the queue
+
+To submit your job script for the execution to the queue, use the `qsub` command:
 ~~~
-$ showbf -f xk
+$ qsub jobscript.sh
 ~~~
 {: .language-bash}
 
-# Submitting job to the queue
+To check the status of your job, use `qstat` command:
 ~~~
-$ qsub jobscript.sh
 $ qstat
 $ qstat -f
-$ qhold
-$ qdel
-$ checkjob
+$ qstat -u $USER
+~~~
+{: .language-bash}
+
+To postpone execution, release the hold, or remove your job from the queue, use `qhold`, `qrls`, and
+`qdel` commands, correspondingly:
+~~~
+$ qhold <JOBID>
+$ qdel <JOBID>
+$ checkjob <JOBID>
+~~~
+{: .language-bash}
+
+
+## Backfill
+
+If you would like your job to start sooner you might be interested in backfill opportunities:
+
+~~~
+$ showbf -f xk
+# or
+# showbf -f xe
 ~~~
 {: .language-bash}
 
