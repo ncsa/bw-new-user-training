@@ -9,26 +9,25 @@ objectives:
 - "Learn how to use Globus Online and a `globus` tool"
 keypoints:
 - "Use `scp`, `rsync`, `wget`, `git` for \"small\" data transfers"
-- "Use \"Globus Online\" for large/long data transfers"
+- "Use \"Globus Online\" (GO) for large/long data transfers"
+- "Blue Waters' and Nearline addresses in GO are **`ncsa#BlueWaters`**
+  and **`ncsa#Nearline`**, correspondingly"
 - "Use Globus to store data in Nearline"
 ---
-
-_**This episode is a stub and is beeing actively developed.**_
-_Please feel free to share your ideas and/or contribute._
 
 If we step back and consider the entire process of our interaction with Blue Waters,
 it consists of three main steps:
 
-1. Bringing data (input, code) onto the system
+1. Bringing data (input) and, possibly, code onto the system
 2. Running simulations and/or analysis
 3. Moving data (results) from the system
 
 In this episode we will discuss several ways of transfering data between your machine and Blue Waters.
 Because this is an introduction on how to work with Blue Waters and not any specific scientific code,
 we will use a tarball of Linux Kernel version 4.16.8.
-Please download it [here](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.8.tar.xz).
+Please download it to your computer by clicking
+[here](https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.8.tar.xz).
 
-<br />
 ## Cunning `scp`
 
 The simplest way to bring data from your computer to Blue Waters is by using the `scp` command.
@@ -114,7 +113,6 @@ That was not too difficult... But there is, in fact, a caveat: _`scp` follows sy
 This means that instead of transfering symbolic links as such, `scp` transfers actual files they
 point to.
 
-<br />
 ## `rsync`, the savior
 
 `rsync` is a popular and, in many ways, a much better alternative to `scp`.
@@ -150,7 +148,6 @@ and did not transfer it, saving us bandwidth and time!
 Note, that again we are using the `bw` shortcut that we created for the `ssh` command.
 If we "accidentally" try uploading it again, `rsync` will, again, skip the upload.
 
-<br />
 ## `wget` and `curl`
 
 When files that you'd like to upload onto Blue Waters are located somewhere in the World Wide
@@ -163,7 +160,6 @@ $ curl -O https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.16.8.tar.xz
 ~~~
 {: .language-bash}
 
-<br />
 ## `git`
 
 If you're hosting your personal code in a `git` repository, use the `git clone` command:
@@ -173,7 +169,6 @@ $ git clone https://github.com/your-github-account/repository.git ~/source-code/
 ~~~
 {: .language-bash}
 
-<br />
 ## Large/long data transfers
 
 When dealing with large data, we have to consider the details of the data transfer process.
