@@ -282,15 +282,14 @@ execution to the Blue Waters job queue.
 >
 > CC = gcc
 >
-> all: simple_mpi.exe
+> .DEFAULT_GOAL := simple_mpi.exe
+> .PHONY: clean all
 >
 > simple_mpi.exe: src/simple_mpi.c
 > 	$(CC) -o $@ $^
 >
-> .PHONY: clean all
->
 > clean:
-> 	rm -f *.exe
+> 	-@rm -f simple_mpi.exe
 > ~~~
 > {: .output}
 >
