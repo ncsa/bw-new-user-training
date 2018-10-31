@@ -6,13 +6,13 @@ questions:
 - "What software is available on Blue Waters?"
 objectives:
 - "Learn how to use module environment"
-- "Learn about 4 main Programming Environments"
+- "Learn about four available Programming Environments"
 - "Underhow to use Python on Blue Waters"
 keypoints:
 - "Software on Blue Waters lives in \"modules\""
 - "\"Install\" and \"uninstall\" software with `module load` / `module unload`"
 - "There are 4 types of Programming Environments on Blue Waters: Cray, Gnu, Intel, and PGI"
-- "Python lives in \"bwpy\" series of modules"
+- "Python and its derivatives (Tensorflow, PyTorch) live in \"bwpy\" module and its sister modules."
 ---
 
 ## Modules
