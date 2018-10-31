@@ -187,6 +187,7 @@ However, you can consult with
 [https://bluewaters.ncsa.illinois.edu/python](https://bluewaters.ncsa.illinois.edu/python)
 for more information about Python on Blue Waters.
 
+
 ## Profiling Python code on Blue Waters
 
 If you are interested in optimizing your Python code for Blue Waters,
@@ -225,12 +226,12 @@ However, if you have any questions or problems - please let us know at
 
 GPUs provide enormous computational power.
 If your application requires or is capable of taking advantage of NVIDIA GPUs, you should be aware
-of two modules:
+of the following three modules:
 
  - `cudatoolkit`
- - `craype-accel-nvidia35`
+ - `craype-accel-nvidia35` and `PrgEnv-pgi`
 
-The first module is required for any application that uses GPUs and the second one is required for
+The first module is required for any application that uses GPUs and the latter two are required for
 applications that use OpenACC. At the moment, the latest version of `cudatoolkit` installed on Blue
 Waters is version 9.1 though it might change in the future.  `craype-accel-nvidia35` module, on the
 other hand, is specific to the NVIDIA GPUs installed on Blue Waters.
