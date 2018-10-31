@@ -16,6 +16,12 @@ keypoints:
 - "`setfacl` and `getfacl`"
 ---
 
+## Online storage
+
+All Blue Waters users are given access to three directories located on different filesystems called
+Home, Projects, and Scratch. These filesystems are accessible from anywhere on Blue Waters and,
+therefore, together form the called **online** storage system.
+
 ## Home directory
 
 When you log in to Blue Waters, you arrive at your home directory.
@@ -25,10 +31,17 @@ $ pwd
 ~~~
 {: .language-bash}
 
+You should see either
 ~~~
 /u/sciteam/username
 ~~~
 {: .output}
+for standard Blue Waters accounts or
+~~~
+/u/training/traXXX
+~~~
+{: .output}
+for training accounts.
 
 This is a path to your home directory.
 You should use it for things like storing your source code, compiling programs, etc.
@@ -44,7 +57,7 @@ delete a file or a directory - email us at [help+bw@ncsa.illinois.edu]({{ site.b
 
 Another directory that you have been given access to is the so-called projects directory.
 The purpose of this directory is to share large files between members of the group.
-The actual path to this directory depends on the **PSN** (Project's Short Name) of your project.
+The actual path to this directory depends on the Project Short Name, or **PSN**, of your project.
 To find out PSN of your project, execute:
 
 ~~~
@@ -64,7 +77,7 @@ xyz | Project description
 {: .output}
 
 Here, we can see that our PSN is: `xyz`. Therefore, our project directory is located at:
-`/projects/sciteam/xyz`.
+`/projects/sciteam/xyz` for standard projects and at `/projects/training/xyz` for training ones.
 Projects directory has a quota of **5 TB** and **25 M** files,
 a hard limit of **5.5 TB**, no hard limit on the number of files, and, as before
 a 7-day grace period.
@@ -75,7 +88,8 @@ Just like home directories, your project folder is backed up on a daily basis.
 ## Scratch  space
 
 Finally, you can also access the so-called **scratch** directory.
-It is located under `/scratch/sciteam/username`, has a quota of **500 TB** and **50 M** files,
+It is located under `/scratch/sciteam/username` for standard accounts and under
+`/scratch/training/traXXX` for training accounts, has a quota of **500 TB** and **50 M** files,
 a hard limit of **550 TB**, no hard limit on the number of files, and a 7-day grace period.
 Like your home directory, only you have access to it.
 Like the scratch directory, the quota and a hard limit are shared by all group members.
@@ -89,7 +103,7 @@ are purged automatically. Therefore, make sure to move important data from your 
 as soon as possible.
 
 
-### `quota` command
+## `quota` command
 
 To check how much space you are using in all three filesystems, use the `quota` command:
 
@@ -127,12 +141,6 @@ Nearline Quota Information for groups
 TRAIN_barx     Used:     0    of  50.0TiB Assessed on: Mon Jan 14 17:11:01 2018
 ~~~
 {: .output}
-
-## Online storage
-
-The three directories that we have just discussed are stored on different filesystems
-and are accessible from anywhere on Blue Waters.
-Because of that, these filesystems together form the called **online** storage system.
 
 ## Fine-grained access control
 
@@ -175,17 +183,16 @@ $ setfacl -b /scratch/sciteam/username
 > > ## Solution
 > > Assuming that the instructor's username is `INSTRUCTOR`, execute:
 > > ~~~
-> > $ mkdir /scratch/sciteam/$USER/testdir
-> > $ setfacl -m u:INSTRUCTOR:rx /scratch/sciteam/$USER /scratch/sciteam/$USER/testdir
+> > $ mkdir $HOME/testdir
+> > $ setfacl -m u:INSTRUCTOR:rx $HOME $HOME/testdir
 > > # Let instructor verify your solution
-> > $ rm -r /scratch/sciteam/$USER/testdir
-> > $ setfacl -b /scratch/sciteam/$USER 
+> > $ rm -r $HOME/testdir
+> > $ setfacl -b $HOME
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
-<br />
 ## Nearline
 
 In the output of the `quota` command, you might have noticed the lines that start with **Nearline**.
