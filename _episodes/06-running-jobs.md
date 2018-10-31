@@ -42,9 +42,10 @@ This directory contains two simple batch scripts (`*.pbs`) and a `src` directory
 a few programs.
 
 
-## Submitting job to the queue
+## Submitting a job
 
-To submit your job script for the execution to the queue, use the `qsub` command:
+To submit your job script for the execution on the Blue Water compute nodes
+to the queue, use the `qsub` command:
 ~~~
 $ qsub jobscript.sh
 ~~~
