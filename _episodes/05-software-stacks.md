@@ -166,7 +166,7 @@ you list the module you want to be added to your environment.
 
 ## Influential modules
 
-### Python = `bwpy`
+## Python = `bwpy`
 
 Python is a very popular language in scientific computing due to its simplicity and versatility.
 However, from a standpoint of a large supercomputer, its modularity presents a challenge because
@@ -180,7 +180,7 @@ However, you can consult with
 [https://bluewaters.ncsa.illinois.edu/python](https://bluewaters.ncsa.illinois.edu/python)
 for more information about Python on Blue Waters.
 
-### Profiling Python code on Blue Waters
+## Profiling Python code on Blue Waters
 
 If you are interested in optimizing your Python code for Blue Waters,
 have a look at the
@@ -188,7 +188,7 @@ have a look at the
 page on the Blue Waters portal.
 
 
-### Python + MPI = `bwpy-mpi`
+## Python + MPI = `bwpy-mpi`
 
 To take advantage of the fast Blue Waters interconnect from within Python, you have to load
 the `bwpy-mpi` module. This module, however, does not work on the login nodes.
@@ -198,7 +198,7 @@ $ module load bwpy-mpi
 ~~~
 {: .language-bash}
 
-### Python + Jupyter Notebooks = ...
+## Python + Jupyter Notebooks = ...
 
 Well, for now, we will simply say that:
 
@@ -208,7 +208,7 @@ Well, for now, we will simply say that:
 However, if you have any questions or problems - please let us know at
 [help+bw@ncsa.illinois.edu]({{ site.bwhelpemail }})
 
-### `cudatoolkit`
+## `cudatoolkit`
 
 GPUs provide enormous computational power.
 If your application requires CUDA, you should be aware of the `cudatoolkit` modules installed on the system.
