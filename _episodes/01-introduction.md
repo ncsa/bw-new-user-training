@@ -80,20 +80,19 @@ at your leisure.
 
 Blue Waters is a Cray system that has:
 
- - [Nodes]({{ page.root }}/reference/#node) _with_ and _without_ GPUs
-   - 22,636 "XE" nodes
-      - 2 AMD Interlagos processors
-      - 64 GB of RAM
-   - 4,228 "XK" nodes
-      - 1 AMD Interlagos processor
-      - 32 GB of RAM
-      - 1 NVIDIA GK110 (K20X) "Kepler" with
-        - 6 GB of memory
-        - 14 Streaming Multiprocessors (SMX) each providing
-          - 192 single-precision cores (2,688 total)
-          - 64 double-precision units (896 total)
-          - 32 special function units (448 total)
-          - 32 load/store units
+ - 22,636 "XE" [nodes]({{ page.root }}/reference/#node)
+    - 2 AMD Interlagos processors
+    - 64 GB of RAM
+ - 4,228 "XK" [nodes]({{ page.root }}/reference/#node)
+    - 1 AMD Interlagos processor
+    - 32 GB of RAM
+    - 1 NVIDIA GK110 (K20X) "Kepler" with
+      - 6 GB of memory
+      - 14 Streaming Multiprocessors (SMX) each providing
+        - 192 single-precision cores (2,688 total)
+        - 64 double-precision units (896 total)
+        - 32 special function units (448 total)
+        - 32 load/store units
  - All nodes are connected by the Cray Gemini 3D torus interconnect
  - Total disk space (called "online" storage): 26.4 PB (Peta bytes)
  - 250+ PB of "near-line" (to distinguish from "online" and "offline") storage space
