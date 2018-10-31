@@ -9,7 +9,11 @@ objectives:
 - "Learn how to submit, delete, and control jobs"
 - "Learn how to execute software on compute nodes"
 keypoints:
+- "Job scripts are regular scripts with special `#PBS` comments"
+- "`#PBS` comments must appear at the top of the job script"
+- "`#PBS` comments specify all requests and set characteristics of compute jobs"
 - "Job scripts are executed on MOM nodes."
+- "Interactive jobs are the jobs submitted with `-I` flag and do not accept job script as input"
 - "`aprun` must be used to send applications for execution to compute nodes."
 ---
 
@@ -19,7 +23,6 @@ Before we learn how to launch jobs on Blue Waters,
 let's take a closer look at its structure.
 
 ![Blue Waters nodes](../fig/BW-nodes.png)
-
 
 As you already know, when we connect to Blue Waters _via_ `ssh` command we land on one
 of three login nodes. Here we can take care of all input data and compile our application.
