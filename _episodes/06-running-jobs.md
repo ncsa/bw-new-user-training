@@ -79,7 +79,7 @@ If you would like your job to start sooner you might be interested in backfill o
 ~~~
 $ showbf -f xk
 # or
-# showbf -f xe
+$ showbf -f xe
 ~~~
 {: .language-bash}
 
