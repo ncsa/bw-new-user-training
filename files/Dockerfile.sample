@@ -1,0 +1,27 @@
+FROM centos:7
+LABEL maintainer "Maxim Belkin <maxim.belkin@gmail.com>"
+RUN yum -y install file gcc make gcc-gfortran gcc-c++ wget curl
+
+RUN cd /usr/local/src/ && \
+    wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz && \
+    tar xf mpich-3.2.1.tar.gz && \
+    rm mpich-3.2.1.tar.gz && \
+    cd mpich-3.2.1 && \
+    ./configure && \
+    make && make install && \
+    cd /usr/local/src && \
+    rm -rf mpich-3.2.1*
+
+RUN cd /usr/local/src/ && \
+    wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.4.4.tar.gz && \
+    tar xf osu-micro-benchmarks-5.4.4.tar.gz && \
+    cd osu-micro-benchmarks-5.4.4 && \
+    ./configure CC=/usr/local/bin/mpicc CXX=/usr/local/bin/mpicxx && \
+    make && make install && \
+    cd /usr/local/src && \
+    rm -rf osu-micro-benchmarks-5.4.4
+RUN mkdir test-mpi
+COPY ./files/test.c test-mpi/test-mpi.c
+WORKDIR /test-mpi
+RUN /usr/local/bin/mpicc test-mpi.c -o test-mpi
+ENV PATH=/usr/bin:/usr/local/bin:/bin
