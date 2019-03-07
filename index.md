@@ -10,7 +10,7 @@ world!  If you're attending a live session - feel free to ask the presenter ques
 anytime!  If you're using this lesson for self-paced learning - send your questions to
 [bw-eot@ncsa.illinois.edu]({{ site.email }})!
 
-> #### Prerequisites
+> ## Prerequisites
 >
 > **Hardware**<br />
 > This is a hands-on introduction to Blue Waters.
